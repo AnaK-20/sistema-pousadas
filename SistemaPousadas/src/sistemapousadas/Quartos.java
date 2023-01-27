@@ -6,7 +6,7 @@ public class Quartos {
     public static ResultSet exibirQuartos() {
         String sql = "select * from Quartos;";
         ResultSet rs;
-        rs = AcessarBanco.colsultarBanco(sql);
+        rs = AcessarBanco.colsultarDados(sql);
         return rs;
         
     }
@@ -14,7 +14,7 @@ public class Quartos {
     public static ResultSet getQuartos(int idQuarto){
         String sql = "select * from Quartos where idQuarto =" +idQuarto+ ";";
         ResultSet rs;
-        rs = AcessarBanco.colsultarBanco(sql);
+        rs = AcessarBanco.colsultarDados(sql);
         return rs;
     }
     
@@ -23,7 +23,7 @@ public class Quartos {
         String insertSQL = "INSERT INTO Quartos" + "(idQuarto, numero, descricao, valor, numCamas)"
                 + " VALUES (" +idQuarto+ ", " +numero+", '"+ descricao+"', "+valor+", "
                 +numCamas+ ");";
-        regInseridos = AcessarBanco.atualizarBanco(insertSQL);
+        regInseridos = AcessarBanco.atualizarDados(insertSQL);
 
         return regInseridos;
     }
@@ -33,7 +33,7 @@ public class Quartos {
         String updateSQL = "UPDATE Quartos SET "+ "numero = " +numero+ ", descricao = '" +descricao+
                 "', valor = " +valor+ ", numCamas = " +numCamas+  
                 "WHERE idQuarto = " +idQuarto+ ";";
-        regInseridos = AcessarBanco.atualizarBanco(updateSQL);
+        regInseridos = AcessarBanco.atualizarDados(updateSQL);
 
         return regInseridos;
      }
@@ -41,7 +41,7 @@ public class Quartos {
      public static int excluirQuarto(int idQuarto){
         int regInseridos = 0;
         String excluirSQL = "DELETE FROM Quartos WHERE idQuarto= " +idQuarto+ ";";
-        regInseridos = AcessarBanco.atualizarBanco(excluirSQL);
+        regInseridos = AcessarBanco.atualizarDados(excluirSQL);
 
         return regInseridos;
     }

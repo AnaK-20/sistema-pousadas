@@ -51,7 +51,7 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(8, 225, 219));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome:");
@@ -70,20 +70,20 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Estado:");
 
-        jPanel1.setBackground(new java.awt.Color(8, 225, 219));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton2.setBackground(new java.awt.Color(8, 225, 219));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton3.setBackground(new java.awt.Color(8, 225, 219));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton4.setBackground(new java.awt.Color(8, 225, 219));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton5.setBackground(new java.awt.Color(8, 225, 219));
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton6.setBackground(new java.awt.Color(8, 225, 219));
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton7.setBackground(new java.awt.Color(8, 225, 219));
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

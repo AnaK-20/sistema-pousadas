@@ -71,6 +71,11 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
 
         miCadastrarQuarto.setMnemonic('y');
         miCadastrarQuarto.setText("Quarto");
+        miCadastrarQuarto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastrarQuartoActionPerformed(evt);
+            }
+        });
         menuCadastrar.add(miCadastrarQuarto);
 
         miCadastrarReserva.setMnemonic('p');
@@ -122,6 +127,12 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
         desktopPane.add(formularioClientes, JLayeredPane.POPUP_LAYER);
         formularioClientes.setVisible(true);
     }//GEN-LAST:event_miCadastrarClienteActionPerformed
+
+    private void miCadastrarQuartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarQuartoActionPerformed
+        FormularioQuartos formularioQuartos = new FormularioQuartos();
+        desktopPane.add(formularioQuartos, JLayeredPane.POPUP_LAYER);
+        formularioQuartos.setVisible(true);
+    }//GEN-LAST:event_miCadastrarQuartoActionPerformed
 
     /**
      * @param args the command line arguments

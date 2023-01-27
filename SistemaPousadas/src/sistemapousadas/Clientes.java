@@ -6,7 +6,7 @@ public class Clientes {
     public static ResultSet exibirClientes(){
         String sql = "select * from Clientes;";
         ResultSet rs;
-        rs = AcessarBanco.colsultarBanco(sql);
+        rs = AcessarBanco.colsultarDados(sql);
         return rs;
         
     }
@@ -14,7 +14,7 @@ public class Clientes {
     public static ResultSet getClientes(String cpf){
         String sql = "select * from Clientes where cpf =" +cpf+ ";";
         ResultSet rs;
-        rs = AcessarBanco.colsultarBanco(sql);
+        rs = AcessarBanco.colsultarDados(sql);
         return rs;
     }
     
@@ -24,7 +24,7 @@ public class Clientes {
         String insertSQL = "INSERT INTO Clientes" + "(cpf, nome, telefone, logardouro, numero, cidade, estado)"
                 + " VALUES (" +cpf+ ", '" +nome+"',"+ telefone+", '"+logradouro+"', "
                 +numero+ ", '" +cidade+ "', '" +estado+ "' );";
-        regInseridos = AcessarBanco.atualizarBanco(insertSQL);
+        regInseridos = AcessarBanco.atualizarDados(insertSQL);
 
         return regInseridos;
     }
@@ -34,7 +34,7 @@ public class Clientes {
         String updateSQL = "UPDATE Clientes SET "+ "nome = '" +nome+ "', telefone = '" +telefone+
                 "', logardouro = '" +logradouro+ "', numero = " +numero+ ", cidade = '" +cidade+ "', estado = '" +estado+ 
                 "WHERE cpf = " +cpf+ ";";
-        regInseridos = AcessarBanco.atualizarBanco(updateSQL);
+        regInseridos = AcessarBanco.atualizarDados(updateSQL);
 
         return regInseridos;
         
@@ -42,7 +42,7 @@ public class Clientes {
     public static int excluirCliente(String cpf){
         int regInseridos = 0;
         String excluirSQL = "DELETE FROM Clientes WHERE cpf= " +cpf+ ";";
-        regInseridos = AcessarBanco.atualizarBanco(excluirSQL);
+        regInseridos = AcessarBanco.atualizarDados(excluirSQL);
 
         return regInseridos;
     }
