@@ -5,6 +5,7 @@
  */
 package formularios;
 
+import javax.swing.JLayeredPane;
 /**
  *
  * @author 20201194010010
@@ -40,7 +41,7 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        desktopPane.setBackground(new java.awt.Color(8, 225, 219));
+        desktopPane.setBackground(new java.awt.Color(255, 255, 255));
 
         menuSistema.setMnemonic('f');
         menuSistema.setText("Sistema");
@@ -61,6 +62,11 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
 
         miCadastrarCliente.setMnemonic('t');
         miCadastrarCliente.setText("Cliente");
+        miCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastrarClienteActionPerformed(evt);
+            }
+        });
         menuCadastrar.add(miCadastrarCliente);
 
         miCadastrarQuarto.setMnemonic('y');
@@ -110,6 +116,12 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
     private void miCadastrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarReservaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_miCadastrarReservaActionPerformed
+
+    private void miCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarClienteActionPerformed
+        FormularioClientes formularioClientes = new FormularioClientes();
+        desktopPane.add(formularioClientes, JLayeredPane.POPUP_LAYER);
+        formularioClientes.setVisible(true);
+    }//GEN-LAST:event_miCadastrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
