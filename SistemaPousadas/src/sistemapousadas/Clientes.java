@@ -41,7 +41,7 @@ public class Clientes {
     }
     public static int excluirCliente(String cpf){
         int regInseridos = 0;
-        String excluirSQL = "DELETE FROM caixa WHERE cpf= " +cpf+ ";";
+        String excluirSQL = "DELETE FROM Clientes WHERE cpf= " +cpf+ ";";
         regInseridos = AcessarBanco.atualizarBanco(excluirSQL);
 
         return regInseridos;
