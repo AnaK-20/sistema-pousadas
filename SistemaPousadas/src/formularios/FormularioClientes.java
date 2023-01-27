@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package formularios;
+import java.sql.ResultSet;
+import sistemapousadas.Clientes;
 
 /**
  *

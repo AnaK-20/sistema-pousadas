@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package formularios;
-
+import java.sql.ResultSet;
+import sistemapousadas.Quartos;
 /**
  *
  * @author 20201194010010
