@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package formularios;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import sistemapousadas.Clientes;
@@ -58,6 +59,12 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
             }catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+        public void cadastrarCliente(){
+            int regInseridos = 0;
+            regInseridos = Clientes.cadastrarCliente(tfCpf.getText(), tfNome.getText(),tfTelefone.getText(),
+                    tfDataNascimento.getText(), tfLogradouro.getText(), tfNumero.getText(), tfCidade.getText(), tfEstado.getText());
+            
         }
         
         
@@ -124,6 +131,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         btNovo.setBackground(new java.awt.Color(255, 255, 255));
         btNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +145,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
         });
 
         btAdicionar.setBackground(new java.awt.Color(255, 255, 255));
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
 
         btSalvar.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -262,6 +279,14 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         limparFormulario();
     }//GEN-LAST:event_btNovoActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        
+    }//GEN-LAST:event_btAdicionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
