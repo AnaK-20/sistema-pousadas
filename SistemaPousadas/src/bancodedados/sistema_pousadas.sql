@@ -59,6 +59,6 @@ CREATE TABLE IF NOT EXISTS hospedes (
   fk_idReserva INT NOT NULL,
   fk_cpf VARCHAR(11) NOT NULL,
   FOREIGN KEY (fk_idReserva)
-  REFERENCES Reservas (idReserva)
+  REFERENCES Reservas (idReserva),
   FOREIGN KEY (fk_cpf)
   REFERENCES Clientes (cpf));

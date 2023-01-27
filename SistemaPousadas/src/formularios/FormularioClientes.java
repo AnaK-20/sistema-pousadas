@@ -5,6 +5,7 @@
  */
 package formularios;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import sistemapousadas.Clientes;
 
 /**
@@ -16,9 +17,56 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
     /**
      * Creates new form FormularioClientes
      */
-    public FormularioClientes() {
-        initComponents();
-    }
+    
+        private ResultSet rs = null;
+        public FormularioClientes(){
+            super("Clientes", true, true, true, true);
+            initComponents();
+            exibirClientes();
+        }
+        public void exibirClientes(){
+            rs = Clientes.exibirClientes();
+            
+            try{
+                if(rs != null && rs.next()){
+                    exibirCliente(rs);
+                    
+                    btNovo.setEnabled(false);
+                    btVoltar.setEnabled(true);
+                    btProximo.setEnabled(true);
+                    btAdicionar.setEnabled(true);
+                    btExcluir.setEnabled(true);
+                } else{
+                    limparFormulario();
+                    rs = null;
+                }
+            }catch(SQLException e){
+              e.printStackTrace();
+                    
+            }
+        }
+        public void exibirCliente(ResultSet rs){
+            try{
+                tfCpf.setText(rs.getString("cpf"));
+                tfNome.setText(rs.getString("nome"));
+                tfTelefone.setText(rs.getString("telefone"));
+                tfDataNascimento.setText(new Short(rs.getShort("data_nascimento")).toString());
+                tfLogradouro.setText(rs.getString("logradouro"));
+                tfNumero.setText(rs.getString("numero"));
+                tfCidade.setText(rs.getString("cidade"));
+                tfEstado.setText(rs.getString("estado"));
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        
+        
+            
+        
+        
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,9 +95,9 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
         tfEstado = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btVoltar = new javax.swing.JButton();
+        btNovo = new javax.swing.JButton();
         btAdicionar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
-        btAtualizar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
         btProximo = new javax.swing.JButton();
 
@@ -77,16 +125,16 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
 
         btVoltar.setBackground(new java.awt.Color(255, 255, 255));
 
-        btAdicionar.setBackground(new java.awt.Color(255, 255, 255));
-        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        btNovo.setBackground(new java.awt.Color(255, 255, 255));
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAdicionarActionPerformed(evt);
+                btNovoActionPerformed(evt);
             }
         });
 
-        btSalvar.setBackground(new java.awt.Color(255, 255, 255));
+        btAdicionar.setBackground(new java.awt.Color(255, 255, 255));
 
-        btAtualizar.setBackground(new java.awt.Color(255, 255, 255));
+        btSalvar.setBackground(new java.awt.Color(255, 255, 255));
 
         btExcluir.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -100,11 +148,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -120,10 +168,10 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                     .addComponent(btExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btAdicionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                            .addComponent(btNovo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                             .addComponent(btVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btAtualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -211,15 +259,15 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btAdicionarActionPerformed
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+        limparFormulario();
+    }//GEN-LAST:event_btNovoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
-    private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btNovo;
     private javax.swing.JButton btProximo;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
