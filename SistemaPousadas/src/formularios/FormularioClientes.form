@@ -282,6 +282,9 @@
               <Image iconType="3" name="/icones/icons8-ok-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btExcluir">
           <Properties>
@@ -292,6 +295,9 @@
               <Image iconType="3" name="/icones/icons8-cancelar-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExcluirActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btProximo">
           <Properties>
@@ -302,6 +308,9 @@
               <Image iconType="3" name="/icones/icons8-divisa-circulada-&#xe0;-direita-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btProximoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

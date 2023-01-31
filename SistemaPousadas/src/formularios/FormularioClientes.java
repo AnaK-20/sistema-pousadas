@@ -66,6 +66,39 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                     tfDataNascimento.getText(), tfLogradouro.getText(), tfNumero.getText(), tfCidade.getText(), tfEstado.getText());
             
         }
+        public void limparFormulario() {
+            tfCpf.setText("");
+            tfNome.setText("");
+            tfTelefone.setText("");
+            tfDataNascimento.setText("");
+            tfLogradouro.setText("");
+            tfNumero.setText("");
+            tfCidade.setText("");
+            tfEstado.setText("");
+
+            btVoltar.setEnabled(true);
+            btAdicionar.setEnabled(true);
+            btSalvar.setEnabled(false);
+            btExcluir.setEnabled(false);
+            btProximo.setEnabled(true);
+
+    }
+        private void atualizarCadastro() {
+        int regAtualizados = 0;
+
+        regAtualizados = Clientes.atualizarCadastro(tfCpf.getText(), tfNome.getText(),tfTelefone.getText(),
+                    tfDataNascimento.getText(), tfLogradouro.getText(), tfNumero.getText(), tfCidade.getText(), tfEstado.getText());
+        
+    }
+    
+        private void excluirCliente(){
+
+        int regExcluidos = 0;
+        
+        regExcluidos = Clientes.excluirCliente(tfCpf.getText());
+       
+    }
+        
         
         
         
@@ -156,12 +189,27 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
 
         btSalvar.setBackground(new java.awt.Color(255, 255, 255));
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-ok-50.png"))); // NOI18N
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btExcluir.setBackground(new java.awt.Color(255, 255, 255));
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-cancelar-50.png"))); // NOI18N
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
 
         btProximo.setBackground(new java.awt.Color(255, 255, 255));
         btProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-divisa-circulada-à-direita-50.png"))); // NOI18N
+        btProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btProximoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -287,12 +335,70 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        
+        try {
+            if (rs != null) {
+                if (!rs.isFirst()) {
+                    rs.previous();
+                }
+                exibirCliente(rs);
+
+            btVoltar.setEnabled(true);
+            btAdicionar.setEnabled(false);
+            btSalvar.setEnabled(false);
+            btExcluir.setEnabled(false);
+            btProximo.setEnabled(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-        
+        cadastrarCliente();
+        exibirClientes();
     }//GEN-LAST:event_btAdicionarActionPerformed
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        try {
+            tfCpf .getText();
+            atualizarCadastro();
+            exibirClientes();
+            rs.getString("cpf");
+            exibirCliente(rs);
+
+            btVoltar.setEnabled(true);
+            btAdicionar.setEnabled(false);
+            btSalvar.setEnabled(true);
+            btExcluir.setEnabled(true);
+            btProximo.setEnabled(true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+        excluirCliente();
+        exibirClientes();
+    }//GEN-LAST:event_btExcluirActionPerformed
+
+    private void btProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProximoActionPerformed
+        try {
+            if (rs != null) {
+                if (!rs.isLast()) {
+                    rs.next();
+                }
+                exibirCliente(rs);
+
+            btVoltar.setEnabled(true);
+            btAdicionar.setEnabled(false);
+            btSalvar.setEnabled(true);
+            btExcluir.setEnabled(true);
+            btProximo.setEnabled(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btProximoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
