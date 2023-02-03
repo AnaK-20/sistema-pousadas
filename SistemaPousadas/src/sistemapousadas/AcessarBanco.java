@@ -3,33 +3,45 @@ package sistemapousadas;
 import java.sql.*;
 
 public class AcessarBanco {
-    
-    private static String serverName = "localhost";
-    private static String mydatabase = "sistema_posadas";
-    private static String url = "jdbc:sql://" + serverName + "/" + mydatabase;
-    private static String userName = "alunas";
-    private static String password = "12345678";
+      private static String serverName = "localhost";    //caminho do servidor do BD
+    private static String mydatabase = "sistemapousadas";        //nome do seu banco de dados
+    // endereço onde está o banco de dados. Lembrem-se que BDClientes é o nome
+    // que vocês colocaram no Administrador ODBC
+    private static String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+    // usuário do banco de dados
+    private static String username = "alunas";
+    // senha para acesso ao banco de dados
+    private static String password = "123";
+    // Conexão ao banco de dados
     private static Connection cnn = null;
+    // Driver para conexão ao banco de dados
     private static String driverName = "com.mysql.cj.jdbc.Driver";
-    
+
     public static Connection abrirConexao() {
 
         try {
             if (AcessarBanco.cnn == null) {
+                // Este é um dos meios para registrar um driver
                 Class.forName(driverName);
-                AcessarBanco.cnn = DriverManager.getConnection(url, userName, password);
+                // Configurando a nossa conexão com um banco de dados//
+                AcessarBanco.cnn = DriverManager.getConnection(url, username, password);
+                // Se a conexão foi executada com sucesso, a mensagem abaixo é exibida na Saída Padrão Java
+                System.out.println("Você se conectou ao banco de dados!! :D :D");
+                System.out.println("#####################################");
                 return AcessarBanco.cnn;
             }
 
         } catch (SQLException e) {
-            e.printStackTrace(); 
+            // se houve algum erro, uma exceção é gerada para informar o erro
+            e.printStackTrace(); //vejamos que erro foi gerado e quem o gerou
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //vejamos que erro foi gerado e quem o gerou
         }
-        return AcessarBanco.cnn;   
+
+        return AcessarBanco.cnn;
     }
-    
-     public static int atualizarDados(String sql){
+
+    public static int atualizarDados(String sql){
         Statement stmt = null;
         int regAlterados = 0;
 
@@ -44,8 +56,8 @@ public class AcessarBanco {
 
         return regAlterados;
     }
-     
-     public static ResultSet consultarDados(String sql) {
+
+    public static ResultSet consultarDados(String sql) {
         Statement stmt = null;
         ResultSet rs = null;
 
@@ -60,4 +72,5 @@ public class AcessarBanco {
 
         return rs;
     }
+    
 }

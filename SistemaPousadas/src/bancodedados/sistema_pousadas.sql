@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS Sistema_pousadas;
-USE Sistema_pousadas ;
+CREATE SCHEMA IF NOT EXISTS sistemapousadas;
+USE sistemapousadas ;
 
 CREATE TABLE IF NOT EXISTS Clientes (
   cpf VARCHAR(11) NOT NULL,
