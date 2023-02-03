@@ -1,12 +1,13 @@
 package sistemapousadas;
 
 import java.sql.ResultSet;
+import sistemapousadas.AcessarBanco;
 
 public class Quartos {
     public static ResultSet exibirQuartos() {
         String sql = "select * from Quartos;";
         ResultSet rs;
-        rs = AcessarBanco.colsultarDados(sql);
+        rs = AcessarBanco.consultarDados(sql);
         return rs;
         
     }
@@ -14,7 +15,7 @@ public class Quartos {
     public static ResultSet getQuartos(int idQuarto){
         String sql = "select * from Quartos where idQuarto =" +idQuarto+ ";";
         ResultSet rs;
-        rs = AcessarBanco.colsultarDados(sql);
+        rs = AcessarBanco.consultarDados(sql);
         return rs;
     }
     
