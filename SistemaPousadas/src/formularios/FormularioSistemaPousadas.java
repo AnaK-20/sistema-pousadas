@@ -35,7 +35,6 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
         menuCadastrar = new javax.swing.JMenu();
         miCadastrarCliente = new javax.swing.JMenuItem();
         miCadastrarQuarto = new javax.swing.JMenuItem();
-        miCadastrarReserva = new javax.swing.JMenuItem();
         menuReservas = new javax.swing.JMenu();
         miExibirReservas = new javax.swing.JMenuItem();
 
@@ -78,15 +77,6 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
         });
         menuCadastrar.add(miCadastrarQuarto);
 
-        miCadastrarReserva.setMnemonic('p');
-        miCadastrarReserva.setText("Reserva");
-        miCadastrarReserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadastrarReservaActionPerformed(evt);
-            }
-        });
-        menuCadastrar.add(miCadastrarReserva);
-
         menuBar.add(menuCadastrar);
 
         menuReservas.setMnemonic('h');
@@ -117,10 +107,6 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
-
-    private void miCadastrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miCadastrarReservaActionPerformed
 
     private void miCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarClienteActionPerformed
         FormularioClientes formularioClientes = new FormularioClientes();
@@ -179,7 +165,6 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
     private javax.swing.JMenu menuSistema;
     private javax.swing.JMenuItem miCadastrarCliente;
     private javax.swing.JMenuItem miCadastrarQuarto;
-    private javax.swing.JMenuItem miCadastrarReserva;
     private javax.swing.JMenuItem miExibirReservas;
     // End of variables declaration//GEN-END:variables
 
