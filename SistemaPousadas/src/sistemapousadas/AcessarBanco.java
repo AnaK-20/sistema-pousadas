@@ -3,7 +3,7 @@ package sistemapousadas;
 import java.sql.*;
 
 public class AcessarBanco {
-      private static String serverName = "localhost";    //caminho do servidor do BD
+      private static String serverName = "10.41.1.33";    //caminho do servidor do BD
     private static String mydatabase = "sistemapousadas";        //nome do seu banco de dados
     // endereço onde está o banco de dados. Lembrem-se que BDClientes é o nome
     // que vocês colocaram no Administrador ODBC

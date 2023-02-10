@@ -64,13 +64,13 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
 
             
 
-            rs1 = Quartos.getQuartos(new Integer(rs.getInt("idQuarto")).toString());
+            rs1 = Quartos.getQuartos(rs.getString("idQuarto"));
             if (rs1 != null && rs1.next()) {
-                taDescricao.setText(rs1.getString("descricao"));
+                tfNome.setText(rs1.getString("nome"));
             }
             rs1 = null;
-            tfDataEntrada.setText(rs.getDate("data_nascimento").toString());
-            tfDataSaida.setText(rs.getDate("data_nascimento").toString());
+            tfDataEntrada.setText(rs.getDate("dataEntrada").toString());
+            tfDataSaida.setText(rs.getDate("dataSaida").toString());
             if (rs.getString("comCafe").equals("Sim")) {
                 cbComCafe.setSelectedIndex(1);
             } else if ((rs.getString("comCafe").equals("Não"))) {
@@ -94,8 +94,8 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
 
     public void cadastrarReserva() {
         int regInseridos = 0;
-        regInseridos = Reservas.cadastrarReserva(tfIdReserva.getColumns(), tfQtdPessoas.getText(), tfDataEntrada.getText(), tfDataSaida.getText(),
-                (String)cbComCafe.getSelectedItem(), tfCpf.getText(), tfIdQuarto.getText(), (String)cbFormaPag.getSelectedItem(), tfValor.getText());
+        regInseridos = Reservas.cadastrarReserva(tfIdReserva.getColumns(),tfValor.getText(),(String)cbFormaPag.getSelectedItem(), tfQtdPessoas.getText(), tfDataEntrada.getText(), tfDataSaida.getText(),
+                tfCpf.getText(), (String)cbComCafe.getSelectedItem(), tfIdQuarto.getText());
 
     }
 
@@ -461,9 +461,9 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
                 }
                 exibirReserva(rs);
 
-                btVoltar.setEnabled(true);
+                /*btVoltar.setEnabled(true);
                 btAdicionar.setEnabled(false);
-                btProximo.setEnabled(true);
+                btProximo.setEnabled(true);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -478,9 +478,9 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
                 }
                 exibirReserva(rs);
 
-                btVoltar.setEnabled(true);
+                /*btVoltar.setEnabled(true);
                 btAdicionar.setEnabled(false);
-                btProximo.setEnabled(true);
+                btProximo.setEnabled(true);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
