@@ -20,7 +20,8 @@ public class Reservas {
         
     }
     public static ResultSet getReservas(String idReserva){
-        String sql = "select * from Reservas where idReserva =" +idReserva+ ";";
+        String sql = "select * from Reservas, Clientes, Quartos where Cliete.cpf = Reservas.fk_cpf"
+                + "and Quartos.idQuarto = Reservas.fk_idQuarto and idReserva =" +idReserva+ ";";
         ResultSet rs;
         rs = AcessarBanco.consultarDados(sql);
         return rs;
