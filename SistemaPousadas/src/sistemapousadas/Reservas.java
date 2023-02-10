@@ -38,16 +38,6 @@ public class Reservas {
         return regInseridos;
     }
     
-    public static int atualizarReserva(String  idReserva, String qtd_pessoas, String valor, String forma_pag,
-            String dataEntrada, String dataSaida, String fk_cpf, String comCafe, String fk_idQuarto){
-        int regInseridos = 0;
-        String updateSQL = "UPDATE Reservas SET "+ "qtd_pessoas = " +qtd_pessoas+ ", valor = " +valor+ ", forma_pag ='"
-                + forma_pag+"', dataEntrada = '" +dataEntrada+ "', dataSaida = " +dataSaida+ ", fk_cpf = '" 
-                +fk_cpf+ "', estado = '" +fk_cpf+ "WHERE idRsesrva = " +idReserva+ ";";
-        regInseridos = AcessarBanco.atualizarDados(updateSQL);
 
-        return regInseridos;
-        
-    }
         
 }

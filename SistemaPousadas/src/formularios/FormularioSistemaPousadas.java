@@ -36,7 +36,8 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
         miCadastrarCliente = new javax.swing.JMenuItem();
         miCadastrarQuarto = new javax.swing.JMenuItem();
         menuReservas = new javax.swing.JMenu();
-        miExibirReservas = new javax.swing.JMenuItem();
+        miCadastrarReservas = new javax.swing.JMenuItem();
+        miCancelar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,9 +83,17 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
         menuReservas.setMnemonic('h');
         menuReservas.setText("Reservas");
 
-        miExibirReservas.setMnemonic('c');
-        miExibirReservas.setText("Reservas");
-        menuReservas.add(miExibirReservas);
+        miCadastrarReservas.setMnemonic('c');
+        miCadastrarReservas.setText("Cadastrar");
+        miCadastrarReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastrarReservasActionPerformed(evt);
+            }
+        });
+        menuReservas.add(miCadastrarReservas);
+
+        miCancelar.setText("Cancelar");
+        menuReservas.add(miCancelar);
 
         menuBar.add(menuReservas);
 
@@ -119,6 +128,12 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
         desktopPane.add(formularioQuartos, JLayeredPane.POPUP_LAYER);
         formularioQuartos.setVisible(true);
     }//GEN-LAST:event_miCadastrarQuartoActionPerformed
+
+    private void miCadastrarReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarReservasActionPerformed
+        FormularioReservas formularioReservas = new FormularioReservas();
+        desktopPane.add(formularioReservas, JLayeredPane.POPUP_LAYER);
+        formularioReservas.setVisible(true);
+    }//GEN-LAST:event_miCadastrarReservasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +180,8 @@ public class FormularioSistemaPousadas extends javax.swing.JFrame {
     private javax.swing.JMenu menuSistema;
     private javax.swing.JMenuItem miCadastrarCliente;
     private javax.swing.JMenuItem miCadastrarQuarto;
-    private javax.swing.JMenuItem miExibirReservas;
+    private javax.swing.JMenuItem miCadastrarReservas;
+    private javax.swing.JMenuItem miCancelar;
     // End of variables declaration//GEN-END:variables
 
 }
