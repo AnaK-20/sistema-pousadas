@@ -35,9 +35,9 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
             if (rs != null && rs.next()) {
                 exibirReserva(rs);
 
-                btVoltar.setEnabled(true);
+                /*btVoltar.setEnabled(true);
                 btProximo.setEnabled(true);
-                btAdicionar.setEnabled(false);
+                btAdicionar.setEnabled(false);*/
             } else {
                 limparFormulario();
                 rs = null;
@@ -53,24 +53,24 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
 
         try {
 
-            tfCpf.setEditable(false);
-            tfIdQuarto.setEditable(false);
+            tfCpf.setEditable(true);
+            tfIdQuarto.setEditable(true);
 
-            rs1 = Clientes.getClientes(rs.getString("clientes_cpf"));
+            rs1 = Clientes.getClientes(rs.getString("cpf"));
             if (rs1 != null && rs1.next()) {
                 tfNome.setText(rs1.getString("nome"));
             }
             rs1 = null;
 
-            tfIdQuarto.setText(new Integer(rs.getInt("quartos_idquarto")).toString());
+            
 
-            rs1 = Quartos.getQuartos(new Integer(rs.getInt("quartos_idquarto")).toString());
+            rs1 = Quartos.getQuartos(new Integer(rs.getInt("idQuarto")).toString());
             if (rs1 != null && rs1.next()) {
                 taDescricao.setText(rs1.getString("descricao"));
             }
             rs1 = null;
-            tfDataEntrada.setText(new Short(rs.getShort("dataEntrada")).toString());
-            tfDataSaida.setText(new Short(rs.getShort("dataSaida")).toString());
+            tfDataEntrada.setText(rs.getDate("data_nascimento").toString());
+            tfDataSaida.setText(rs.getDate("data_nascimento").toString());
             if (rs.getString("comCafe").equals("Sim")) {
                 cbComCafe.setSelectedIndex(1);
             } else if ((rs.getString("comCafe").equals("Não"))) {
@@ -85,6 +85,7 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
             } else {
                 cbFormaPag.setSelectedIndex(0);
             }
+            tfQtdPessoas.setText(new Integer(rs.getInt("qtd_pessoas")).toString());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -93,7 +94,7 @@ public class FormularioReservas extends javax.swing.JInternalFrame {
 
     public void cadastrarReserva() {
         int regInseridos = 0;
-        regInseridos = Reservas.cadastrarReserva(tfIdReserva.getText(), tfQtdPessoas.getText(), tfDataEntrada.getText(), tfDataSaida.getText(),
+        regInseridos = Reservas.cadastrarReserva(tfIdReserva.getColumns(), tfQtdPessoas.getText(), tfDataEntrada.getText(), tfDataSaida.getText(),
                 (String)cbComCafe.getSelectedItem(), tfCpf.getText(), tfIdQuarto.getText(), (String)cbFormaPag.getSelectedItem(), tfValor.getText());
 
     }

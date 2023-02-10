@@ -19,11 +19,11 @@ public class Quartos {
         return rs;
     }
     
-    public static int cadastrarQuarto(String idQuarto, String numero, String descricao, String valor, String numCamas){
+    public static int cadastrarQuarto(int idQuarto, String numero, String descricao, String valor, String numCamas){
         int regInseridos = 0;
         String insertSQL = "INSERT INTO Quartos" + "(idQuarto, numero, descricao, valor, numCamas)"
-                + " VALUES (" +idQuarto+ ", " +numero+", '"+ descricao+"', "+valor+", "
-                +numCamas+ ");";
+                + " VALUES (" +idQuarto+ ", '" +numero+"', '"+ descricao+"', '"+valor+"', '"
+                +numCamas+ "');";
         regInseridos = AcessarBanco.atualizarDados(insertSQL);
 
         return regInseridos;

@@ -26,7 +26,7 @@ public class Reservas {
         rs = AcessarBanco.consultarDados(sql);
         return rs;
     }
-    public static int cadastrarReserva(String  idReserva, String qtd_pessoas, String valor, String forma_pag,
+    public static int cadastrarReserva(int  idReserva, String qtd_pessoas, String valor, String forma_pag,
             String dataEntrada, String dataSaida, String fk_cpf, String comCafe, String fk_idQuarto){
         int regInseridos = 0;
         String insertSQL = "INSERT INTO Reservas" + "(idReserva, qtd_pessoas, valor, forma_pag,"

@@ -32,11 +32,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                 if(rs != null && rs.next()){
                     exibirCliente(rs);
                     
-                    btNovo.setEnabled(false);
+                   /* btNovo.setEnabled(false);
                     btVoltar.setEnabled(true);
                     btProximo.setEnabled(true);
                     btAdicionar.setEnabled(true);
-                    btExcluir.setEnabled(true);
+                    btExcluir.setEnabled(true);*/
                 } else{
                     limparFormulario();
                     rs = null;
@@ -51,7 +51,7 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                 tfCpf.setText(rs.getString("cpf"));
                 tfNome.setText(rs.getString("nome"));
                 tfTelefone.setText(rs.getString("telefone"));
-                tfDataNascimento.setText(new Short(rs.getShort("data_nascimento")).toString());
+                tfDataNascimento.setText(rs.getDate("data_nascimento").toString());
                 tfLogradouro.setText(rs.getString("logradouro"));
                 tfNumero.setText(new Integer(rs.getInt("numero")).toString());
                 tfCidade.setText(rs.getString("cidade"));
@@ -76,11 +76,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
             tfCidade.setText("");
             tfEstado.setText("");
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(true);
-            btSalvar.setEnabled(false);
-            btExcluir.setEnabled(false);
-            btProximo.setEnabled(true);
+            btSalvar.setEnabled(true);
+            btExcluir.setEnabled(true);
+            btProximo.setEnabled(false);*/
 
     }
         private void atualizarCadastro() {
@@ -342,11 +342,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                 }
                 exibirCliente(rs);
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(false);
             btSalvar.setEnabled(false);
             btExcluir.setEnabled(false);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -366,11 +366,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
             rs.getString("cpf");
             exibirCliente(rs);
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(false);
             btSalvar.setEnabled(true);
             btExcluir.setEnabled(true);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -389,11 +389,11 @@ public class FormularioClientes extends javax.swing.JInternalFrame {
                 }
                 exibirCliente(rs);
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(false);
             btSalvar.setEnabled(true);
             btExcluir.setEnabled(true);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -30,11 +30,11 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
                 if(rs != null && rs.next()){
                     exibirQuarto(rs);
                     
-                    btNovo.setEnabled(false);
+                    /*btNovo.setEnabled(false);
                     btVoltar.setEnabled(true);
                     btProximo.setEnabled(true);
                     btAdicionar.setEnabled(true);
-                    btExcluir.setEnabled(true);
+                    btExcluir.setEnabled(true);*/
                 } else{
                     limparFormulario();
                     rs = null;
@@ -58,7 +58,7 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
         }
     public void cadastrarQuarto(){
             int regInseridos = 0;
-            regInseridos = Quartos.cadastrarQuarto(tfIdQuarto.getText(), tfNumero.getText(),
+            regInseridos = Quartos.cadastrarQuarto(tfIdQuarto.getColumns(), tfNumero.getText(),
                     taDescricao.getText(), tfValor.getText(), tfNumCamas.getText());
             
         }
@@ -69,11 +69,11 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
             tfValor.setText("");
             tfNumCamas.setText("");
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(true);
             btSalvar.setEnabled(false);
             btExcluir.setEnabled(false);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
 
     }
         private void atualizarQuarto() {
@@ -91,6 +91,7 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
         regExcluidos = Quartos.excluirQuarto(tfIdQuarto.getText());
        
     }
+      
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -294,11 +295,11 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
                 }
                 exibirQuarto(rs);
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(false);
             btSalvar.setEnabled(false);
             btExcluir.setEnabled(false);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -322,11 +323,11 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
             rs.absolute(idQuarto);
             exibirQuarto(rs);
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(false);
             btSalvar.setEnabled(true);
             btExcluir.setEnabled(true);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -345,11 +346,11 @@ public class FormularioQuartos extends javax.swing.JInternalFrame {
                 }
                 exibirQuarto(rs);
 
-            btVoltar.setEnabled(true);
+            /*btVoltar.setEnabled(true);
             btAdicionar.setEnabled(false);
             btSalvar.setEnabled(true);
             btExcluir.setEnabled(true);
-            btProximo.setEnabled(true);
+            btProximo.setEnabled(true);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();

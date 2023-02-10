@@ -22,9 +22,9 @@ public class Clientes {
     public static int cadastrarCliente(String cpf, String nome, String telefone,String data_nascimento,
             String logradouro, String numero, String cidade, String estado){
         int regInseridos = 0;
-        String insertSQL = "INSERT INTO Clientes" + "(cpf, nome, telefone, data_nascimento, logardouro, numero, cidade, estado)"
-                + " VALUES (" +cpf+ ", '" +nome+"',"+ telefone+", '" + data_nascimento + ", '" +logradouro+"', '"
-                +numero+ ", '" +cidade+ "', '" +estado+ "' );";
+        String insertSQL = "INSERT INTO Clientes " + "(cpf, nome, telefone, data_nascimento, logradouro, numero, cidade, estado)"
+                + " VALUES ('" +cpf+ "', '" +nome+"','"+ telefone+"', '" + data_nascimento + "', '" +logradouro+"', '"
+                +numero+ "', '" +cidade+ "', '" +estado+ "' );";
         regInseridos = AcessarBanco.atualizarDados(insertSQL);
 
         return regInseridos;
